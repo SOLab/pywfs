@@ -12,5 +12,6 @@ setup(
     description='Useful towel-related stuff.',
     long_description=open('README.txt').read(),
     install_requires=[
+        'xmltodict >= 0.9.2'
     ],
 )

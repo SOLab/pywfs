@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WFS_Capabilities
+	version="1.0.0"
+	xmlns="http://www.opengis.net/wfs"
+	xmlns:ogc="http://www.opengis.net/ogc">
+
+	<Service>
+		<Name>PyWFS Middleware</Name>
+		<Title>Not a WFS Server</Title>
+		<Abstract>Supports WFS, somehow</Abstract>
+		<OnlineResource></OnlineResource>
+	</Service>
+
+	<Capability>
+		<Request>
+			<GetCapabilities>
+				<DCPType>
+					<HTTP>
+						<Get onlineResource="" />
+					</HTTP>
+				</DCPType>
+			</GetCapabilities>
+			<GetFeature>
+				<ResultFormat>
+					<GML2 />
+				</ResultFormat>
+				<DCPType>
+					<HTTP>
+						<Get onlineResource="" />
+					</HTTP>
+				</DCPType>
+			</GetFeature>
+		</Request>
+	</Capability>
+
+	<FeatureTypeList>
+	</FeatureTypeList>
+
+	<SupportsGMLObjectTypeList>
+	</SupportsGMLObjectTypeList>
+
+	<ogc:Filter_Capabilities>
+	</ogc:Filter_Capabilities>
+
+</WFS_Capabilities>
