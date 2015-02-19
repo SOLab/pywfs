@@ -1,17 +1,10 @@
-from distutils.core import setup
+try:
+    import paver.tasks
+except ImportError:
+    from os.path import exists
+    if exists("paver-minilib.zip"):
+        import sys
+        sys.path.insert(0, "paver-minilib.zip")
+    import paver.tasks
 
-setup(
-    name='TowelStuff',
-    version='0.1.0',
-    author='J. Random Hacker',
-    author_email='jrh@example.com',
-    packages=['towelstuff', 'towelstuff.test'],
-    scripts=['bin/stowe-towels.py','bin/wash-towels.py'],
-    url='http://pypi.python.org/pypi/TowelStuff/',
-    license='LICENSE.txt',
-    description='Useful towel-related stuff.',
-    long_description=open('README.txt').read(),
-    install_requires=[
-        'xmltodict >= 0.9.2'
-    ],
-)
+paver.tasks.main()

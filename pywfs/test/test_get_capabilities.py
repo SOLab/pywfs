@@ -3,7 +3,7 @@ import xmltodict
 
 class Handler():
 
-	def GetCapabilities(self):
+	def GetCapabilities(self, params):
 		return [('test1', 1), ('test2', 2)]
 
 def test_process():
