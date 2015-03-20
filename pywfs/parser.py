@@ -2,6 +2,8 @@ from paste.request import construct_url, parse_dict_querystring
 import pywfs.commands.get_capabilities as get_capabilities
 import pywfs.commands.get_feature as get_feature
 from pywfs.serializers import serialize_json
+from ast import literal_eval as ev
+import ipdb
 
 
 class Parser:
@@ -28,8 +30,15 @@ class Parser:
     else:
       raise Exception('We do not support request %s', command)
 
+  def safe_eval(self, val): 
+    try:
+      return ev(val)
+    except:
+      return val
+
   def process_request(self, query):
     parsed_query = parse_dict_querystring(query)
+    parsed_query = { k: map(self.safe_eval, v.split(',')) if len(v.split(',')) > 1 else self.safe_eval(v) for k,v in parsed_query.items() }
     self._checkVersion(parsed_query)
     command = self.select_command(parsed_query)
     response = {}
