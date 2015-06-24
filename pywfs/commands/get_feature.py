@@ -2,6 +2,7 @@ from collections import OrderedDict
 
 def process(app, query):
   if(hasattr(app, 'GetFeature')):
-    return app.GetFeature(query)
+    ret = app.GetFeature(query)
+    return ret
   else:
     return OrderedDict()
